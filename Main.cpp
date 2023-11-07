@@ -1,6 +1,9 @@
 #include<iostream>
 #include<math.h>
 #include<queue>
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctime>
 // Event Rep
 class Event{
     friend bool operator<(const Event & e1 , const Event& e2);
@@ -26,6 +29,7 @@ bool operator ==(const Event&e1,const Event&e2 ){
         NumberOfDepartures,LongService;
     std::priority_queue <Event> FutureEventList;
     std::queue <Event> Customers;
+
 main(int argc,char* argv[]){
     MeanInterArrivalTime=4.5;
     MeanServiceTime=3.2;
@@ -34,7 +38,6 @@ main(int argc,char* argv[]){
     long seed = atoi(argv[1]);
     setSeed(seed);
     Initialization();
-}
 // loop untill first ''TotalCustomers'' have Departed
 while (NumberOfDepartures < TotalCustomers) {
     Event evt = FutureEventList.top();
@@ -48,23 +51,7 @@ while (NumberOfDepartures < TotalCustomers) {
     }
     ReportGeneration();
 }
-void(Initialization()){
-    // Initialization global variables
-    Clock = 0;
-    QueueLength = 0;
-    NumberInService = 0;
-    LastEventTime = 0;
-    lastEventTime = 0;
-    TotalBusy = 0;
-    MaxQueueLength = 0;
-    SumResponseTime = 0;
-    numberOfDepartures = 0;
-    NumNormals=0;
-    LongService = 0;
-    //create first arrival event
-    Event evt(Event::arrival event,exponential(MianInterArrivalTime));
-    FutureEventList.push(evt);
-}
+};
 void ProcessArrival(event evt){
     Customers.push(evt);
     QueueLength++;
@@ -128,19 +115,21 @@ double exponential(double mean){
 double SaveNormal;
 int NumNormals=0;
 double normal(double mean, double sigma){
-    PI = 3.14159265358979323846;
+    double PI = 3.14159265358979323846;
+    double SaveNormal;
     double ReturnNormal;
     if(NumNormals==0){
         double r1=unif();
         double r2=unif();
         ReturnNormal=sqrt(-2*log(r1))*cos(2*PI*r2);
-        SaveNormal=Sqrt(-2*log(r1))*Sin(2*PI*r2);
+        SaveNormal=sqrt(-2*log(r1))*sin(2*PI*r2);
         NumNormals=1;
-    }else{
-        NumNormals=0
+    }
+    else{
+        NumNormals=0;
         ReturnNormal=SaveNormal;
     }
-    return ReturnNormal*Sigma+Mean;
+    return ReturnNormal*sigma+mean;
         
     }
 
