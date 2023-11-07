@@ -31,7 +31,7 @@ bool operator ==(const Event&e1,const Event&e2 ){
     std::queue <Event> Customers;
 
 main(int argc,char* argv[]){
-    MeanInterArrivalTime=4.5;
+    MeanInterArrivalTime=4.5;œ
     MeanServiceTime=3.2;
     SIGMA=0.6;
     TotalCustomers=1000;
@@ -39,7 +39,7 @@ main(int argc,char* argv[]){
     setSeed(seed);
     Initialization();
 // loop untill first ''TotalCustomers'' have Departed
-while (NumberOfDepartures < TotalCustomers) {
+    while (NumberOfDepartures < TotalCustomers) {
     Event evt = FutureEventList.top();
     FutureEventList.pop();
     Clock = evt.get_time();
@@ -50,8 +50,13 @@ while (NumberOfDepartures < TotalCustomers) {
         ProcessDeparture(evt);
     }
     ReportGeneration();
+}}
+void Initialization(){
+    Clock=0.0;
+    QueueLength=0;
+    NumberInService=0;
+    LastEventTime=0;
 }
-};
 void ProcessArrival(event evt){
     Customers.push(evt);
     QueueLength++;

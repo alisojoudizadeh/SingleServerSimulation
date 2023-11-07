@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/ali/Desktop/Network/S2",
+      "program": "/Users/ali/Desktop/Network/S2/build/Debug/outDebug"
+    }
+  ]
+}
